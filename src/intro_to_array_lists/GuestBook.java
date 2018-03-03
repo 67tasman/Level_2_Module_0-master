@@ -53,6 +53,7 @@ public class GuestBook implements ActionListener{
 	public void view() {
 		frame2.add(panel2);
 		panel2.add(label2);
+		frame.setSize(100, 1000);
 		frame.pack();
 	
 	}
@@ -63,11 +64,13 @@ public class GuestBook implements ActionListener{
 		if(button==e.getSource()) {
 			names.add(JOptionPane.showInputDialog("Enter a name"));
 			}
-
+		String text = "";
 		for(int i = 0; i < names.size(); i++){
 			String s = names.get(i);
-			label2.setText("String at element " + i + " " + s);
+			text += "Guest " + i + ": " + s + "\n";
 		}
+		label2.setText(text);
+	
 		if(button2==e.getSource()) {
 			frame2.setVisible(true);
 			}
