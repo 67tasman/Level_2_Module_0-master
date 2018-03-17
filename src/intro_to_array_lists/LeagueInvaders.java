@@ -12,8 +12,8 @@ GamePanel panel;
 		panel = new GamePanel();
 	}
 
-	final int w = 500;
-	final int h = 800;
+	final static int w = 500;
+	final static int h = 800;
 
 	public static void main(String[] args) {
 		LeagueInvaders invaders = new LeagueInvaders();
