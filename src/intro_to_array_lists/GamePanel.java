@@ -95,25 +95,28 @@ public void keyTyped(KeyEvent e) {
 public void keyPressed(KeyEvent e) {
 	// TODO Auto-generated method stub
 	System.out.println("lhi");
-	if (e.getKeyCode()==KeyEvent.VK_ENTER) {
+	
 		
-		if(currentState > MENU_STATE){
+		if(currentState = MENU_STATE){
 
-	        currentState = GAME_STATE;
+	        currentState = currentState+1;
 
 	}
-	if(currentState > GAME_STATE){
+		
+	if(currentState = GAME_STATE){
 
-        currentState = END_STATE;
+        currentState = currentState+1;
 
 }
+	if (e.getKeyCode()==KeyEvent.VK_ENTER) {
 if(currentState > END_STATE){
 
         currentState = MENU_STATE;
 
 }
+	}
 }
-}
+
 @Override
 public void keyReleased(KeyEvent e) {
 	// TODO Auto-generated method stub
