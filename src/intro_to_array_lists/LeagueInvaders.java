@@ -7,9 +7,11 @@ import javax.swing.JFrame;
 public class LeagueInvaders {
 	JFrame frame;
 GamePanel panel;
+
 	LeagueInvaders() {
 		frame = new JFrame();
 		panel = new GamePanel();
+		
 	}
 
 	final static int w = 500;

@@ -1,6 +1,7 @@
 package intro_to_array_lists;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,8 +21,14 @@ final int END_STATE = 2;
 
 int currentState = MENU_STATE;
 
+Font titleFont;
+Font EndFont;
+Font textFont;
 GamePanel(){
 	timer = new Timer(1000/60, this);
+titleFont = new Font("Arial", Font.PLAIN, 48);
+textFont = new Font("Arial", Font.PLAIN, 30);
+EndFont = new Font("Zapfino", Font.PLAIN, 35);
 
 }
 void StartGame() {
@@ -31,8 +38,21 @@ void StartGame() {
 }  @Override
 
 public void paintComponent(Graphics g){
-	//g.fillRect(10, 10, 100, 100);
 	
+        if(currentState == MENU_STATE){
+
+               drawMenuState(g);
+
+        }
+        else if(currentState == GAME_STATE){
+
+        	drawGameState(g);
+
+        }else if(currentState == END_STATE){
+
+          	drawEndState(g);
+
+        }
 
                 
 
@@ -50,9 +70,14 @@ void updateEndState(){
 void drawMenuState(Graphics g){
 	g.setColor(Color.BLUE);
 
-	g.fillRect(0, 0, LeagueInvaders.w, LeagueInvaders.h);    
-
-	
+	g.fillRect(0, 0, LeagueInvaders.w, LeagueInvaders.h);   
+	g.setColor(Color.YELLOW);
+g.setFont(titleFont);
+g.drawString("LEAGUE INVADERS", 20, 100);
+g.setColor(Color.YELLOW);
+g.setFont(textFont);
+g.drawString("Press ENTER to start.", 100, 300);
+g.drawString("Press SPACE for instructions.", 50, 500);
 }
 void drawGameState(Graphics g){
 	g.setColor(Color.BLACK);
@@ -63,6 +88,12 @@ void drawEndState(Graphics g){
 	g.setColor(Color.RED);
 
 	g.fillRect(0, 0, LeagueInvaders.w, LeagueInvaders.h);   
+	g.setColor(Color.BLACK);
+	g.setFont(EndFont);
+	g.drawString("GAME OVER", 50, 100);
+	g.setFont(textFont);
+	g.drawString("You killed 0 enemies.", 100, 300);
+	g.drawString("Press ENTER to restart.", 95, 500);
 }
 @Override
 public void actionPerformed(ActionEvent e) {
@@ -89,27 +120,28 @@ public void actionPerformed(ActionEvent e) {
 @Override
 public void keyTyped(KeyEvent e) {
 	// TODO Auto-generated method stub
-	System.out.println("hi");
+	
 }
 @Override
 public void keyPressed(KeyEvent e) {
 	// TODO Auto-generated method stub
-	System.out.println("lhi");
+	
 	
 		
-		if(currentState = MENU_STATE){
+	
+	if (e.getKeyCode()==KeyEvent.VK_ENTER) {
+if(currentState == MENU_STATE){
 
 	        currentState = currentState+1;
 
 	}
 		
-	if(currentState = GAME_STATE){
+else if(currentState == GAME_STATE){
 
         currentState = currentState+1;
 
 }
-	if (e.getKeyCode()==KeyEvent.VK_ENTER) {
-if(currentState > END_STATE){
+else if(currentState == END_STATE){
 
         currentState = MENU_STATE;
 
@@ -120,7 +152,6 @@ if(currentState > END_STATE){
 @Override
 public void keyReleased(KeyEvent e) {
 	// TODO Auto-generated method stub
-	System.out.println("ahi");
 	
 }
 	

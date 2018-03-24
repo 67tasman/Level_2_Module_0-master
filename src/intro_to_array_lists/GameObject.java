@@ -18,13 +18,28 @@ public class GameObject {
 		this.height = height;
 	
 	}
+	public class Rocketship extends GameObject {
+
+		Rocketship(int x, int y, int width, int height) {
+			super(x, y, width, height);
+			// TODO Auto-generated constructor stub
+			
+			  void update() {
+				  
+			    	
+			    }
+			   void draw(Graphics g) {
+				 
+			    }
+		}
+		
+	}
     void update() {
-    	x=x+1;
-    	y=y+1;
+ 
     	
     }
    void draw(Graphics g) {
-	   g.fillRect(x,y,width,height);
+	 
     }
 }
 
