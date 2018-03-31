@@ -21,6 +21,10 @@ final int END_STATE = 2;
 
 int currentState = MENU_STATE;
 
+Rocketship Rocket = new Rocketship(250,700,50,50);
+
+ObjectManager OM = new ObjectManager(Rocket);
+
 Font titleFont;
 Font EndFont;
 Font textFont;
@@ -62,6 +66,7 @@ void updateMenuState(){
 	
 }
 void updateGameState(){
+	OM.update();
 	
 }
 void updateEndState(){
@@ -83,6 +88,7 @@ void drawGameState(Graphics g){
 	g.setColor(Color.BLACK);
 
 	g.fillRect(0, 0, LeagueInvaders.w, LeagueInvaders.h);   
+	OM.draw(g);
 }
 void drawEndState(Graphics g){
 	g.setColor(Color.RED);
@@ -125,7 +131,20 @@ public void keyTyped(KeyEvent e) {
 @Override
 public void keyPressed(KeyEvent e) {
 	// TODO Auto-generated method stub
-	
+if(e.getKeyCode()==KeyEvent.VK_UP) {
+	Rocket.y= Rocket.y - 10;
+}
+if(e.getKeyCode()==KeyEvent.VK_DOWN) {
+	Rocket.y= Rocket.y + 10;
+}
+if(e.getKeyCode()==KeyEvent.VK_LEFT) {
+	Rocket.x= Rocket.x - 10;
+}
+if(e.getKeyCode()==KeyEvent.VK_RIGHT) {
+	Rocket.x= Rocket.x + 10;
+}
+
+		
 	
 		
 	
