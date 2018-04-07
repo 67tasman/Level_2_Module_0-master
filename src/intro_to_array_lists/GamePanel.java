@@ -143,7 +143,9 @@ if(e.getKeyCode()==KeyEvent.VK_LEFT) {
 if(e.getKeyCode()==KeyEvent.VK_RIGHT) {
 	Rocket.x= Rocket.x + 10;
 }
-
+if(e.getKeyCode()==KeyEvent.VK_SPACE) {
+	OM.addProjectile(new Projectile(Rocket.x + Rocket.width/2 -5, Rocket.y, 10, 10));
+}
 		
 	
 		
