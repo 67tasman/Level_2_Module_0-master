@@ -23,7 +23,7 @@ int currentState = MENU_STATE;
 
 Rocketship Rocket = new Rocketship(250,700,50,50);
 
-ObjectManager OM = new ObjectManager(Rocket);
+ObjectManager OM = new ObjectManager(Rocket, this);
 
 Font titleFont;
 Font EndFont;
@@ -67,7 +67,9 @@ void updateMenuState(){
 }
 void updateGameState(){
 	OM.update();
-	
+OM.manageEnemies();
+OM.checkCollision();
+OM.PurgeObjects();
 }
 void updateEndState(){
 	
