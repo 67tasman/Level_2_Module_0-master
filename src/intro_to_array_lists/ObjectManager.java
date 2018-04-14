@@ -11,12 +11,19 @@ public class ObjectManager {
 	long enemyTimer = 0;
 	int enemySpawnTime = 1000;
 	private GamePanel gamePanel;
-
+	int score = 0;
 	ObjectManager(Rocketship Rocket, GamePanel panel) {
 		this.Rocket = Rocket;
 		this.gamePanel = panel;
+		getScore(); 
 	}
 
+	int getScore() {
+		return this.score;
+		
+	
+	}
+	
 	void addProjectile(Projectile p) {
 		projectiles.add(p);
 
@@ -34,6 +41,7 @@ public class ObjectManager {
 		for (int i = 0; i < aliens.size(); i++) {
 			aliens.get(i).update();
 		}
+		Rocket.update();
 	}
 
 	void draw(Graphics g) {
@@ -62,7 +70,8 @@ public class ObjectManager {
 			}
 			if (Rocket.isAlive == false) {
 				gamePanel.currentState = gamePanel.END_STATE;
-				System.out.println("h");
+				System.out.println("Rocket dead");
+				Rocket.isAlive = true;
 			}
 		}
 	}
@@ -71,7 +80,7 @@ public class ObjectManager {
 		for (Alien a : aliens) {
 
 			if (Rocket.collisionBox.intersects(a.collisionBox)) {
-				System.out.println("a");
+				System.out.println("rocket collided with alien");
 				Rocket.isAlive = false;
 
 			}
@@ -80,7 +89,7 @@ public class ObjectManager {
 				if (a.collisionBox.intersects(p.collisionBox)) {
 
 					a.isAlive = false;
-
+score++;
 				}
 			}
 

@@ -15,13 +15,14 @@ public class Rocketship extends GameObject {
 
 	void update() {
 		super.update();
-
+		
 	}
 
 	void draw(Graphics g) {
 		g.setColor(Color.BLUE);
 
 		g.fillRect(x, y, width, height);
+		g.fillRect(collisionBox.x, collisionBox.y, collisionBox.width, collisionBox.height);
 
 	}
 }
